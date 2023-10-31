@@ -30,17 +30,12 @@ class MyPanel extends JPanel implements ActionListener {
 
         this.setLayout(null);
         this.setBackground(backgroundColor);
-//		this.setSize(400,460);
-//		frame.setSize(400, 460);
-//		Toolkit tk2 = Toolkit.getDefaultToolkit();
-//		Dimension size2 = tk2.getScreenSize();
-//		frame.setLocation(size.width/2-200, size.height/2-230);
 
         for(int i=0; i<3; i++) {
             for(int j=0; j<3; j++) {
                 btnArr[i][j] = new JButton();
-                btnArr[i][j].setBackground(btnColor); //버튼색상
-                btnArr[i][j].setFont(gameBtnFont); //폰트
+                btnArr[i][j].setBackground(btnColor);
+                btnArr[i][j].setFont(gameBtnFont);
                 btnArr[i][j].setText(i*3+j+1+"");
                 btnArr[i][j].setSize(100, 100);
                 btnArr[i][j].setLocation(43+j*100, 30+i*100);
@@ -52,8 +47,8 @@ class MyPanel extends JPanel implements ActionListener {
 
         winBtn.setText("Winner");
         winBtn.setSize(160, 40);
-        winBtn.setLocation(43, 350);		// 왼쪽 상단 0,0 기준으로 지정함.
-        winBtn.setBackground(optionBtnColor);	//버튼색상
+        winBtn.setLocation(43, 350);
+        winBtn.setBackground(optionBtnColor);
         winBtn.setFont(optionBtnFont);
         winBtn.addActionListener(this);
         this.add(winBtn);
@@ -61,7 +56,7 @@ class MyPanel extends JPanel implements ActionListener {
         reBtn.setText("RePlay");
         reBtn.setSize(120, 40);
         reBtn.setLocation(223, 350);
-        reBtn.setBackground(optionBtnColor);	//버튼색상
+        reBtn.setBackground(optionBtnColor);
         reBtn.setFont(optionBtnFont);
         reBtn.addActionListener(this);
         this.add(reBtn);
@@ -138,12 +133,10 @@ class MyPanel extends JPanel implements ActionListener {
         for(int i=0; i<3; i++) {
             for(int j=0; j<3; j++) {
                 if(arr[i][j] == 0) {
-                    // 아직 클릭되지 않은 버튼이 있으면 게임이 진행 중이므로 0을 반환
                     return 0;
                 }
             }
         }
-        // 모든 버튼이 클릭되었지만 승자가 없으면 무승부로 처리하고 3을 반환
         return 3;
     }
 
@@ -193,7 +186,6 @@ class MyPanel extends JPanel implements ActionListener {
 }
 
 public class TicTacToe {
-
     public static void main(String[] args) {
 
         JFrame frame = new JFrame("Tic Tac Toe");
