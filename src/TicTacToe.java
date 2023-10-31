@@ -111,6 +111,7 @@ class MyPanel extends JPanel implements ActionListener {
                 }
             }
         }
+
         if(check() == 2) {
             winBtn.setText("Player2 WIN");
             winBtn.setBackground(pushedBtnColor2);
@@ -120,10 +121,32 @@ class MyPanel extends JPanel implements ActionListener {
                 }
             }
         }
-//		if(check() == 0) {
-//			// 아직 승부 안남
-//		}
+
+        int drawResult = checkDraw();
+        if(drawResult == 3) {
+            winBtn.setText("Draw");
+            winBtn.setBackground(optionBtnColor);
+            for(int i=0; i<3; i++) {
+                for(int j=0; j<3; j++) {
+                    btnArr[i][j].setEnabled(false);
+                }
+            }
+        }
     }
+
+    int checkDraw() {
+        for(int i=0; i<3; i++) {
+            for(int j=0; j<3; j++) {
+                if(arr[i][j] == 0) {
+                    // 아직 클릭되지 않은 버튼이 있으면 게임이 진행 중이므로 0을 반환
+                    return 0;
+                }
+            }
+        }
+        // 모든 버튼이 클릭되었지만 승자가 없으면 무승부로 처리하고 3을 반환
+        return 3;
+    }
+
 
     int check() {
 
